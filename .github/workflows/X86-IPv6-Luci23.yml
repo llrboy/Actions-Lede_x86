@@ -83,7 +83,10 @@ jobs:
         echo "OPENWRT_PATH=$GITHUB_WORKSPACE/openwrt" >> $GITHUB_ENV
     - name: 生成变量
       run: |
+        echo "🔍 CONFIG_FILE路径: $CONFIG_FILE"
+        ls -la $CONFIG_FILE || echo "❌ ERROR: config文件不存在！"
         [ -e $CONFIG_FILE ] && cp $CONFIG_FILE openwrt/.config
+        ls -la openwrt/.config || echo "❌ ERROR: .config复制失败"
         SOURCE_REPO="$(echo $REPO_URL | awk -F '/' '{print $(NF)}')"
         echo "SOURCE_REPO=$SOURCE_REPO" >> $GITHUB_ENV
         DEVICE_TARGET=$(cat openwrt/.config | grep CONFIG_TARGET_BOARD | awk -F '"' '{print $2}')
