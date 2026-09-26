@@ -106,7 +106,7 @@ config interface 'wan6'
 config interface 'VPN'
 	option device 'ipsec0'
 	option proto 'static'
-	option ipaddr '192.168.200.1'
+	option ipaddr '10.10.10.1'
 	option netmask '255.255.255.0'
 
 EOF
