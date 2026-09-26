@@ -10,7 +10,7 @@
 # Description: OpenWrt DIY script part 1 (Before Update feeds)
 #
 #1. 删除源码自带的 luci-app-ipsec-vpnd
-rm -rf package/lean/luci-app-ipsec-vpnd
+rm -rf feeds/luci/applications/luci-app-ipsec-vpnd
 
 # Add OpenClash
 git clone --depth=1 https://github.com/vernesong/OpenClash.git package/luci-app-openclash
